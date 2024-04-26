@@ -1,0 +1,35 @@
+git --version 
+
+git config --global user.name "farazpatwegar"
+
+git config --global user.email "farazpatwegar@gmail.com"
+
+git config --list
+
+git init -------------> it convert local folder into git repo (creat .git folder)
+
+git add . ---------> add files in staging area
+
+git commit -m "massage"  ------> take snapshot of what are the changes create on file
+
+git status -----> check status of file
+
+git branch <branch name> -------> create branch 
+
+git checkout <branch name> ---------> switching branch 
+
+
+Uploading existing project on GitHub 
+git-ignore
+
+• Commands
+• git init
+• git add .
+• git commit –m “message”
+• git remote add origin <remote URL>
+• git push origin master 
+
+
+https://dzone.com/articles/top-20-git-commands-with-examples
+
+
