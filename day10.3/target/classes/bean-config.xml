@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- configure Java classes as spring beans -->
+	<!-- dependency beans -->
+	<!-- singleton  -->
+	<bean id="test" class="dependency.TestTransport" />
+	<!-- singleton n lazy -->
+	<bean id="http" class="dependency.HttpTransport" lazy-init="true" />
+	<!-- prototype n eager -->
+	<bean id="soap" class="dependency.SoapTransport" scope="prototype" />
+	
+	<!-- dependent bean , singleton and eager -->
+	
+	
+	<bean id="my_atm" class="dependent.ATMImpl" init-method="anyInit" destroy-method="anyDestroy" >
+		<!-- setter based D.I -->
+		<property name="myTransport" ref="http" />
+		<constructor-arg name="cash1" value="5461"/>
+	</bean>
+	
+	
+</beans>

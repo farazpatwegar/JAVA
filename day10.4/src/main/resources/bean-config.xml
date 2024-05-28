@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- configure Java classes as spring beans -->
+	<!-- dependency beans -->
+	<!-- singleton  -->
+	<bean id="test" class="dependency.TestTransport" />
+	<!-- singleton n lazy -->
+	<bean id="http" class="dependency.HttpTransport" lazy-init="true" />
+	<!-- prototype n eager -->
+	<bean id="soap" class="dependency.SoapTransport" scope="prototype" />
+	<!-- dependent bean , singleton and eager -->
+	<bean id="my_atm" class="dependent.ATMImpl" destroy-method="anyDestroy" factory-method="myFactoryMethod">
+		<!-- factory method based D.I -->
+		<constructor-arg name="t12" ref="soap"/>
+	</bean>
+</beans>
